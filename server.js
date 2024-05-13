@@ -51,6 +51,25 @@ app.post('/api/notes', (req, res) => {
         res.status(500).json('Error in adding a new task')
     }
 })
+
+app.delete('/api/notes/:id', (req, res) => {
+    const taskId = req.params.id
+
+    fs.readFile('./db/db.json', 'utf8', (error, data) => {
+        const taskData = JSON.parse(data)
+        const filteredTaskData = taskData.filter((task) => task.id !== taskId)
+
+        fs.writeFile('./db/db.json', JSON.stringify(filteredTaskData, null, 4), (error) => {
+            if (error) {
+                console.error(error)
+            } else {
+                console.info('task deleted')
+                res.json({ message: 'Task deleted' })
+            }
+        })
+    })
+})
+
 app.listen(PORT, () => {
     console.log(`listening for http://localhost:${PORT}`)
 })
