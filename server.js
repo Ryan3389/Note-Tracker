@@ -11,21 +11,15 @@ const { v4: uuidv4 } = require('uuid');
 app.use(express.static('public'))
 app.use(express.json())
 
-app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/notes.html'))
-})
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/index.html'))
-})
-
-// app.get('/notes', (req, res) => {
-//     res.sendFile(path.join(__dirname, '/public/notes.html'))
-// })
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '/public/index.html'))
-// })
 
 // api paths
+
+app.get('/api/notes', (req, res) => {
+    fs.readFile('./db/db.json', (error, data) => {
+        const taskData = JSON.parse(data)
+        res.json(taskData)
+    })
+})
 app.post('/api/notes', (req, res) => {
     const { title, text } = req.body
 
@@ -59,4 +53,13 @@ app.post('/api/notes', (req, res) => {
 })
 app.listen(PORT, () => {
     console.log(`listening for http://localhost:${PORT}`)
+})
+
+
+
+app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/notes.html'))
+})
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/index.html'))
 })
