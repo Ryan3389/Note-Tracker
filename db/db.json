@@ -2,15 +2,5 @@
     {
         "title": "Test Title",
         "text": "Test text"
-    },
-    {
-        "title": "Express Project",
-        "text": "Create a server using express.js",
-        "id": "9803ac61-e923-4b27-a1a0-86c5e3d366ce"
-    },
-    {
-        "title": "SQL Project",
-        "text": "Due thursday",
-        "id": "4d95886e-b8e2-4b3c-ba1f-7e49af16e734"
     }
 ]
