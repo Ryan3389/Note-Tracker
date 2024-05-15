@@ -6,5 +6,8 @@ This is a note tracker. This app allows users to type in a task title and descri
 ## Installation
 import express, uuidv4 into your project
 
-## Visuals
-INSERT SCREENSHOTS HERE
+## Usage
+In order to use this application, use git clone in your terminal to clone this repository onto your computer, after navigating to the project directory, make sure to install express.js, uuidv4.
+
+## Images
+![Note Tracker App](/images/note-tracker.png)
