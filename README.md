@@ -7,3 +7,6 @@ This is a note tracker. This app allows users to type in a task title and descri
 
 ## Images
 ![Note Tracker App](/images/note-tracker.png)
+
+## Deployed URL
+Deployed URL: https://note-tracker-777s.onrender.com/
